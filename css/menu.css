@@ -1,0 +1,55 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(#4f8fdf, #5267e1);
+}
+.iconbar {
+  height: 100px;
+  width: 80%;
+  max-width: 480px;
+  border-radius: 0 0 2em 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0px -1px 12px 0.1px black;
+}
+.icons {
+  font-family: Nunito;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.4em;
+  border-radius: 1em;
+}
+.icons i {
+  margin-right: 0.2em;
+  font-size: 2.2em;
+}
+.icons span {
+  display: none;
+  font-size: 1.2em;
+  vertical-align: top;
+}
+.active {
+  /*   background:pink; */
+}
+
+@media only screen and (max-device-width: 480px) {
+  .iconbar {
+    height: 80px;
+    width: 90%;
+  }
+  .icons i {
+    font-size: 1.6em;
+  }
+  .icons span {
+    font-size: 1em;
+  }
+}

@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && is_array($_POST) && !empty($email) && 
     $user_id = get_user_id($email);
     //if user id exist check for brute
     if($user_id){
-        if(check_brute($user_id['id'])){
+        if(check_brute($user_id['ID_Perdoruesi'])){
             header( "Location: index.php?error=bG9naW4gYmxvY2tlZA==" ); die;    
         }
     }

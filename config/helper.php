@@ -90,7 +90,7 @@ function insert($table,$data) {
  * |-------------------------------------------------------
  */
 function get_user_id($email){
-	$data = fetch_single('user','id','email',$email);
+	$data = fetch_single('user','ID_Perdoruesi','email',$email);
 	if($data){
 		return $data;
 	}else{
@@ -98,6 +98,11 @@ function get_user_id($email){
 	}
 }
 
+/*
+ * |-------------------------------------------------------
+ * | check login violation
+ * |-------------------------------------------------------
+ */
 /*
  * |-------------------------------------------------------
  * | check login violation
@@ -111,13 +116,21 @@ function check_brute($user_id) {
  
     $sql = "SELECT time FROM login_attempts WHERE user_id = $user_id AND time > '$valid_attempts'";
     $data = fetch_custom($sql);
-    // If there have been more than 5 failed logins 
-	if(count($data) > 5) {
-        return TRUE;
+
+    // Ensure $data is an array before using count()
+    if (is_array($data)) {
+        // If there have been more than 5 failed logins 
+        if (count($data) > 5) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     } else {
+        // Handle the case where $data is not an array
         return FALSE;
     }
 }
+
 
 /*
  * |-------------------------------------------------------
